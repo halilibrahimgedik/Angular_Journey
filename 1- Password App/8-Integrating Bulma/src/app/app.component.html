@@ -1,0 +1,52 @@
+<div class="mainArea">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="box column is-one-third">
+          <h1 class="title has-text-centered">Password Generator</h1>
+  
+          <div class="field">
+            <label>Password Length</label>
+            <input class="input" (change)="modifyLength($any($event.target).value)" />
+          </div>
+  
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input (change)="modifyLetters()" type="checkbox" />
+                use alphabet
+              </label>
+            </div>
+          </div>
+  
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input (change)="modifyNumbers()" type="checkbox" />
+                use numbers
+              </label>
+            </div>
+          </div>
+  
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input (change)="modifySymbols()" type="checkbox" /> 
+                use symbols 
+              </label>
+            </div>
+          </div>
+  
+          <button class="button is-link is-fullwidth"
+            [disabled]="!(length && (includeLetters || includeSymbols || includeNumbers))"
+            (click)="buttonClick()" > Create </button>
+  
+          <div class="box" *ngIf="password">
+            <label>Şifreniz</label>
+            <input class="input" [value]="password" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
