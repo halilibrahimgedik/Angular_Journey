@@ -1,0 +1,30 @@
+<h1>Password Generator</h1>
+
+<div class="mr-4">
+    <label>Password Length</label>
+    <input type="text" (change)="modifyLength($any($event.target).value)">
+</div>
+
+<div class="mr-4">
+    <label>Use Alphabet</label>
+    <input type="checkbox" (change)="modifyLetters()">
+</div>
+
+<div class="mr-4">
+    <label>Use Numbers</label>
+    <input type="checkbox" (change)="modifyNumbers()">
+</div>
+
+<div class="mr-4">
+    <label>Use Symbols</label>
+    <input type="checkbox" (change)="modifySymbols()">
+</div>
+
+<div>
+    <button [disabled]="!(length && (includeLetters || includeNumbers || includeSymbols))" (click)="buttonClick()"> Create</button>
+</div>
+
+<div class="mr-4">
+    <label>Your Password:</label>
+    <input type="text" [value]="password">
+</div>
