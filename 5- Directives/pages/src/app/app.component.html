@@ -7,11 +7,21 @@
       <nav>
         <ul class="pagination">
 
+          <li class="page-item" 
+          [ngClass]="{disabled: currentPage === 0}">
+            <a (click)="previous()" class="page-link"  href="#">Previous</a>
+          </li>
+
           <li class="page-item"
-          [ngClass]="{ 'active' : i === currentPage}" 
-          
+          [ngClass]="{ active : i === currentPage}" 
+
           *ngFor="let image of images; let i = index">
-            <a class="page-link" href="{{image.address}}">{{i+1}}</a>
+            <a (click)="currentPage = i" class="page-link" href="#">{{i+1}}</a>
+          </li>
+
+          <li class="page-item"
+          [ngClass]="{disabled: currentPage === (images.length-1)}">
+            <a (click)="next()" class="page-link" href="#">Next</a>
           </li>
 
         </ul>
@@ -21,3 +31,4 @@
 </div>
 
 <!-- [ngClass]=" i === currentPage ? 'active':'' "  -->
+<!-- (click)="changePage(i)" -->

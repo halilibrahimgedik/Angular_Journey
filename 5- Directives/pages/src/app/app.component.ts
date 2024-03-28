@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  currentPage = 0 ;
+  currentPage = 3 ;
 
   images = [
     {
@@ -29,4 +29,13 @@ export class AppComponent {
     
   ]
   
+  // changePage(i:number){
+  //   this.currentPage = i;
+  // }
+  previous(){
+    this.currentPage -= 1
+  }
+  next(){
+    this.currentPage += 1
+  }
 }
