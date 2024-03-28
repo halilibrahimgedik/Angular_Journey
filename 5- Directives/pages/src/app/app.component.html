@@ -4,7 +4,7 @@
 
       <nav>
         <ul class="pagination">
-          <li class="page-item" appFirst 
+          <li class="page-item" 
           [ngClass]="{disabled: currentPage === 0}">
             <a (click)="currentPage = currentPage - 1" class="page-link"  href="#">Previous</a>
           </li>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="imageUI">
-      <h2 class="mb-4 p-4">{{images[currentPage].title}}</h2>
+      <h2 appFirst [backGroundColor]="'gray'" class="mb-4 p-4">{{images[currentPage].title}}</h2>
       <img [src]="images[currentPage].url" class="img" alt="...">
     </div>
 

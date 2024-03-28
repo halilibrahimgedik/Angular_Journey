@@ -1,12 +1,17 @@
-import { Directive } from '@angular/core';
+import { Directive , ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[appFirst]'
 })
 export class FirstDirective {
 
-  constructor() {
-    console.log("halil i. gedik")
+  constructor(private element : ElementRef) {
+    
+   }
+
+   @Input() set backGroundColor(color : string)
+   {
+    this.element.nativeElement.style.backgroundColor = color;
    }
 
 }
