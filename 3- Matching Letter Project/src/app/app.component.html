@@ -1,0 +1,20 @@
+<div class="mainArea">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="box column is-one-third">
+        <h1 class="title has-text-centered">Harf Eşleştirme</h1>
+
+        
+        <p class="has-text-centered">
+          <span [class]="compare(letter,enteredText[i])" *ngFor="let letter of randomText.split(''); let i = index">{{letter}}</span>  
+          </p>
+        <div class="field mt-3">
+          <input class="input" (input)="getInputValue($event.target.value)"/>
+        </div>
+        <div *ngIf="randomText === enteredText">
+          <h1 class="title">Bravo !</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
