@@ -1,7 +1,105 @@
-<h1> Invoice </h1>
-<div>
-  <label>Name</label>
-  <input type="text" (input)="getNameValue($event.target.value)">
+<div class="container">
+  <h1 class="title has-text-centered py-5"> Invoice </h1>
+    <div class="box m-auto" style="max-width:80% ;">
+
+      <div class="columns is-mobile is-centered ">
+        <div class="column is-half mr-5">
+            <label>Name</label>
+            <input type="text" (input)="getNameValue($event.target.value)" class="input mt-3">
+        </div>
+    
+        <div class="column">
+          <label class="has-text-weight-bold">Name</label>
+          <br>
+          <br>
+          <p>{{name | titlecase}}</p>
+        </div>
+      </div>
+
+      <div class="columns is-mobile is-centered ">
+
+        <div class="column is-half mr-5">
+            <label>Payment Date</label>
+            <input type="date" (input)="getDateValue($event.target.value)" class="input mt-2">
+        </div>
+    
+        <div class="column">
+          <div class="has-text-weight-bold">
+            <label>Payment Date</label>
+          </div>
+          
+          <br>
+          <p>{{date | date :'MMMM dd yyyy'}}</p>
+        </div>
+
+      </div>
+
+      <div class="columns is-mobile is-centered ">
+        <div class="column is-half mr-5">
+            <label> Price</label>
+            <input type="text" (input)="getPriceValue($event.target.value)" class="input mt-2">
+        </div>
+    
+        <div class="column">
+          <div class="has-text-weight-bold">
+            <label>Price</label>
+          </div>
+          
+          <br>
+          <p>{{price | currency:"TRY"}}</p>
+        </div>
+      </div>
+
+      <div class="columns is-mobile is-centered ">
+        <div class="column is-half mr-5">
+            <label> Height</label>
+            <input type="text" (input)="getHeightValue($event.target.value)" class="input mt-2">
+        </div>
+    
+        <div class="column">
+          <div class="has-text-weight-bold">
+            <label>Height</label>
+          </div>
+          
+          <br>
+          <p>{{height | number:"1.0-2" }}</p>
+          <!-- 1. -> noktanın solunda 0 olmayacak
+          0  -> noktadan sonra en az 0 karakter girilebilir
+          2  -> noktadan sonra en fazla 2 karakter girilebilir yani 77 (en az 0 karakter) veya 77.99 (en fazla 2 karakter) girebilirsin 77.999 olmaz -->
+        </div>
+      </div>
+
+      <div class="columns is-mobile is-centered ">
+        <div class="column is-half mr-5">
+            <label> Json</label>
+            <input type="text" (input)="getHeightValue($event.target.value)" class="input mt-2">
+        </div>
+    
+        <div class="column">
+          <div class="has-text-weight-bold">
+            <label>Json</label>
+          </div>
+          
+          <br>
+          <p>{{student | json}}</p>
+       </div>
+      </div>
+
+      <div class="columns is-mobile is-centered ">
+        <div class="column is-half mr-5">
+            <label> Mile</label>
+            <input type="text" (input)="getMiletValue($event.target.value)" class="input mt-2">
+        </div>
+    
+        <div class="column">
+          <div class="has-text-weight-bold">
+            <label>Mile</label>
+          </div>
+          
+          <br>
+          <p>{{mile | convert:"km"}}</p>
+       </div>
+      </div>
+     </div>
 </div>
 
-{{name | titlecase}}
