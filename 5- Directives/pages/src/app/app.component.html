@@ -4,7 +4,7 @@
 
       <nav>
         <ul class="pagination">
-          <li class="page-item" 
+          <li class="page-item" appFirst 
           [ngClass]="{disabled: currentPage === 0}">
             <a (click)="currentPage = currentPage - 1" class="page-link"  href="#">Previous</a>
           </li>
@@ -40,13 +40,13 @@
   <!-- ngSwitch kullanımı -->
   <div [ngSwitch]="currentPage" class="mt-5 text-center">
     <div *ngSwitchCase="0">
-      İlk sayfadasınız
+      İlk sayfadasiniz
     </div>
     <div *ngSwitchCase="1">
-      İkinci sayfadasınız
+      İkinci sayfadasiniz
     </div>
     <div *ngSwitchCase="2">
-      Üçüncü sayfadasınız
+      Üçüncü sayfadasiniz
     </div>
     <div *ngSwitchDefault>
       ilk 3 sayfada değilsin
