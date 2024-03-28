@@ -1,3 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "bootstrap/dist/css/bootstrap.css";
+
+.main-area{
+    background-color: darkkhaki;
+}
+.img{
+    max-height: 700px;
+}
+.imageUI{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

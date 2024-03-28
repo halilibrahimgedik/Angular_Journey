@@ -1,34 +1,61 @@
 <div class="container mt-5 auto">
   <div class="row">
-    <div class="col-md-12 mb-4">
-      <img src="" class="img-fluid" alt="...">
-    </div>
-    <div class="col-md-12">
+    <div class="d-flex justify-content-center">
+
       <nav>
         <ul class="pagination">
-
           <li class="page-item" 
           [ngClass]="{disabled: currentPage === 0}">
-            <a (click)="previous()" class="page-link"  href="#">Previous</a>
+            <a (click)="currentPage = currentPage - 1" class="page-link"  href="#">Previous</a>
           </li>
 
-          <li class="page-item"
-          [ngClass]="{ active : i === currentPage}" 
-
-          *ngFor="let image of images; let i = index">
-            <a (click)="currentPage = i" class="page-link" href="#">{{i+1}}</a>
+          <ng-container *ngFor="let image of images; let i = index">
+            <li class="page-item"
+            [ngClass]="{ active : i === currentPage}"
+            *ngIf="pageIndex(i)">
+              <a 
+                (click)="currentPage = i" 
+                class="page-link" href="#">{{i+1}}
+              </a>
           </li>
+          </ng-container>
+          
 
           <li class="page-item"
           [ngClass]="{disabled: currentPage === (images.length-1)}">
-            <a (click)="next()" class="page-link" href="#">Next</a>
+            <a (click)="currentPage = currentPage + 1" class="page-link" href="#">Next</a>
           </li>
-
         </ul>
       </nav>
+
+    </div>
+
+    <div class="imageUI">
+      <h2 class="mb-4 p-4">{{images[currentPage].title}}</h2>
+      <img [src]="images[currentPage].url" class="img" alt="...">
+    </div>
+
+  </div>
+
+  <!-- ngSwitch kullanımı -->
+  <div [ngSwitch]="currentPage" class="mt-5 text-center">
+    <div *ngSwitchCase="0">
+      İlk sayfadasınız
+    </div>
+    <div *ngSwitchCase="1">
+      İkinci sayfadasınız
+    </div>
+    <div *ngSwitchCase="2">
+      Üçüncü sayfadasınız
+    </div>
+    <div *ngSwitchDefault>
+      ilk 3 sayfada değilsin
     </div>
   </div>
+
 </div>
 
 <!-- [ngClass]=" i === currentPage ? 'active':'' "  -->
-<!-- (click)="changePage(i)" -->
+<!--
+  (click)="changePage(i)" 
+-->
