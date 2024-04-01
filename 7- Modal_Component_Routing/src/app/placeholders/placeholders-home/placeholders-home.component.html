@@ -1,0 +1,23 @@
+<!-- *1. kullanım -->
+<!-- <app-divider [title]="'Placeholder'"> </app-divider> -->
+
+<!-- *2. kullanım | ng-content sayesinde bu selector adlarına *yazdığımız 
+*tüm kodlar divider'a gidip ng-content tagları arasına gömülecek -->
+<app-divider> 
+    Placeholder
+</app-divider>
+
+<!-- *placeholder - yer tutucu -->
+<app-placeholders> </app-placeholders>
+
+<app-divider>
+    segment
+</app-divider>
+<app-segment>
+    <header halil>
+        <i class="pdf file outline icon"></i>
+      No documents are listed for this customer.
+    </header>
+    
+    <div class="ui primary button">Add Document</div>
+</app-segment>

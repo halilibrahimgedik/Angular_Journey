@@ -1,0 +1,13 @@
+<div class="ui items">
+    <div class="item" *ngFor="let product of products ">
+      <div class="image">
+        <img src="/assets/images/{{product.img}}">
+      </div>
+      <div class="content">
+        <a class="header">{{product.title}}</a>
+        <div class="description">
+          <p>{{product.description}}</p>
+        </div>
+      </div>
+    </div>
+</div>
