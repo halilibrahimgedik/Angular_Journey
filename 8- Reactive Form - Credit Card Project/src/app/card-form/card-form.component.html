@@ -1,0 +1,38 @@
+<div style="display:flex; justify-content:space-between;min-width: 1000px;">
+    <img src="assets/card.png" style="border-radius: 7%;max-height: 24vh;max-width: 30vw;">
+    <div class="container" style="display: flex; justify-content: space-around;">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <app-input label="Ad Soyad" [control] = "$any(form.get('fullname'))"></app-input>
+        <!-- label="ad soyad" [ile label]="'ad soyad'" aynı şeydir. 2 farklı yazım -->
+        <app-input label="Card Number" [control] = "$any(form.get('cardNumber'))"></app-input>
+    
+        <div class="columns">
+            <div class="column">
+                <app-input label="Son Kullanma Tarihi" [control] = "$any(form.get('expireDate'))"></app-input>
+            </div>
+            <div class="column">
+                <app-input label="Güvenlik Kodu" [control] = "$any(form.get('cvc'))"></app-input>
+            </div>
+        </div>
+
+        <br>
+        <div class="buttons" style="display: flex;justify-content:flex-end;">
+            <button type="button" class="button is-warning" (click)="resetForm()"> temizle </button>
+            <button type="submit" class="button is-info" [disabled]="form.invalid"> Kaydet </button>
+        </div>
+    </form>
+    </div>
+</div>
+
+
+
+<div class="container mt-5">
+    <p style="color:darkorchid">form content : <span style="color:yellow"> {{form.value | json}} </span> </p>
+    <p style="color:darkorchid">is form touched ? : <span style="color:yellow">{{form.touched}}</span> </p>
+    <p style="color:darkorchid">is form valid ? : <span style="color:yellow">{{form.valid}}</span></p>
+    <p style="color:darkorchid">is form invalid ? : <span style="color:yellow">{{form.invalid}}</span></p>
+    <p style="color:darkorchid">is fullname required ? : <span style="color:yellow">{{fullname?.errors?.['required']}}</span></p>
+    <p style="color:darkorchid">zis fullname required ? (using hasError() method ) : <span style="color:yellow">{{fullname?.hasError('required')}}</span></p> 
+</div>
+

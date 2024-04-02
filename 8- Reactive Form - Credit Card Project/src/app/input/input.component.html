@@ -1,0 +1,45 @@
+<div class="field">
+    <label class="label">{{label}}</label>
+    <div class="control">
+        <input class="input" type="text" [formControl]="control" placeholder="{{label}}"
+        [ngClass]="{'is-danger': OccuredAnError()}">
+    </div>
+</div>
+
+<ng-container *ngIf="OccuredAnError()">
+    <div *ngIf="control.hasError('required')" class="help is-danger">
+        <p class="is-danger">bu alan zorunludur !</p>
+    </div>
+    <div *ngIf="control.hasError('minlength')" class="help is-danger">
+        girdiğiniz karakter sayısı {{control.errors['minlength']?.['actualLength']}}, fakat minimum 
+        {{control.errors['minlength']?.['requiredLength']}} karakter girmelisiniz
+        girebilirsiniz!
+    </div>
+    <div *ngIf="control.hasError('maxlength')" class="help is-danger">
+        girdiğiniz karakter sayısı {{control.errors['maxlength']?.['actualLength']}}, fakat maximum 
+        {{control.errors['maxlength']?.['requiredLength']}} karakter girmelisiniz
+        girebilirsiniz!
+    </div>
+</ng-container>
+
+
+    <!-- <input type="text" placeholder="fullname" formControlName="fullname" class="input"> <br>
+    <div *ngIf="!fullname?.valid && (fullname?.dirty || fullname?.touched)">
+         fullname alanı valid değilse ve değişiklik yapılmışsa(dirty=true) yada dokunulduktan sonra (touched=true) uyarı çıkacak 
+        {{fullname?.errors}}
+    </div>
+
+    <input type="text" placeholder="card number" formControlName="cardNumber"> <br>
+    <div *ngIf="!cardNumber?.valid && (cardNumber?.dirty || cardNumber?.touched)"> 
+        zorunlu alan
+    </div>
+
+    <input type="text" placeholder="expire date" formControlName="expireDate"> <br>
+    <div *ngIf="!expireDate?.valid && (expireDate?.dirty || expireDate?.touched)"> 
+        zorunlu alan
+    </div>
+
+    <input type="text" placeholder="cvc" formControlName="cvc"> <br>
+    <div *ngIf="!cvc?.valid && (cvc?.dirty || cvc?.touched)"> 
+        zorunlu alan
+    </div> -->
