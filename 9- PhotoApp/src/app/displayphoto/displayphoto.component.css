@@ -1,0 +1,9 @@
+img{
+    width:500px;
+}
+.btnDiv{
+    margin: 30px 0px;display: flex;justify-content: center;
+}
+.btn{
+    padding:15px 10px;color: azure;background-color: blueviolet;border-radius: 10px;
+}
