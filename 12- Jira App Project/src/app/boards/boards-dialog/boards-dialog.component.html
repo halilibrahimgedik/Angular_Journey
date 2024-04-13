@@ -1,0 +1,26 @@
+<div class="mx-3 my-4">
+    
+    <h2 mat-dialog-title style="padding: 8px;">Add New Board</h2>
+    <mat-dialog-content style="padding: 8px;">
+
+        <form [formGroup]="boardsForm">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Title</mat-label>
+                <input matInput  formControlName="title" placeholder="title">
+                @if(title?.hasError("required")){
+                    <mat-error>
+                        Title field is required. Please enter a title
+                    </mat-error>
+                }
+            </mat-form-field>
+        </form>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+        <button [disabled]="boardsForm.invalid" mat-button mat-raised-button color="primary" (click)="create()">Create</button>
+    </mat-dialog-actions>
+
+</div>
+

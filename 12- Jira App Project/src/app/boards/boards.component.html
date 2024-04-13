@@ -1,0 +1,20 @@
+
+<div class="d-flex justify-content-center align-items-center my-5">
+    <button mat-raised-button color="warn" (click)="openNewBoardDialog()" class="p-4" style="border-radius: 7px;">Add New Board</button>
+</div>
+
+<div class="container">
+    @for(board of boardService.boards;track board){
+        <div class="d-flex justify-content-between align-items-center text-white px-3" style="border-radius: 9px;font-size:18px ;background-color: #3f53c5;margin:1vw 4vw;" [routerLink]="'/view-board/'+($index+1)">
+            <div>
+                {{board.title}}
+            </div>
+            <div>
+                <button mat-icon-button (click)="deleteBoard($index)">
+                    <mat-icon style="color:white">delete</mat-icon>
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
