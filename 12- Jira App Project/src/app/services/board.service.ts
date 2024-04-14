@@ -30,4 +30,8 @@ export class BoardService {
     localStorage.setItem("boards",JSON.stringify(this.boards))
   }
 
+  public updateDataToLocalstorage(){
+    localStorage.setItem("boards",JSON.stringify(this.boards));
+  }
+
 }

@@ -1,3 +1,29 @@
 <div class="d-flex justify-content-center align-items-center my-5">
     <button mat-raised-button color="accent" (click)="openCardDialog()" class="p-4" style="border-radius: 7px;">Add New Card</button>
 </div>
+
+<div style="max-width: 45vw;margin: auto;">
+@for(card of this.boardService.boards[boardId-1].cards; track $index){
+    <mat-card class="p-3 mb-4">
+        <mat-card-header>
+            <mat-card-title> {{card.title | uppercase}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="my-2">
+            <div>
+                @for(checkbox of card.tasklist; track $index){
+                    <mat-checkbox [(ngModel)]="card.status[$index]">
+                        {{checkbox | titlecase}}
+                    </mat-checkbox>
+                }
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions class="f-flex gap-3">
+            <button mat-raised-button color="accent" (click)="deleteCard($index)">Delete card</button>
+            <button mat-raised-button color="primary" (click)="editCard($index,card)">Update card</button>
+        </mat-card-actions>
+    </mat-card>
+}
+</div>
+

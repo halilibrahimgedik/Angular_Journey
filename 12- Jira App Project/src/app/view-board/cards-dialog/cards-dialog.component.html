@@ -1,14 +1,13 @@
 <div class="mx-3 my-4">
-    <h2 style="padding: 8px;">New Card</h2>
+    <h2 style="padding: 8px;">{{data.editMode ? "Update Card":"New Card"}}</h2>
 
     <mat-dialog-content style="padding: 8px;">
-
         <mat-form-field appearance="outline" style="width: 100%;">
             <mat-label>Title</mat-label>
             <input matInput placeholder="Title" [(ngModel)]="title">
         </mat-form-field>
     
-        @for(task of tasks;track $index){
+        @for(task of tasksLoop;track $index){
             <div class="d-flex justify-content-center align-items-start">
                 <mat-form-field appearance="outline" style="width: 90%;">
                     <mat-label>Task {{$index+1}}</mat-label>
@@ -19,15 +18,11 @@
                 </button>
             </div>
         }
-
     </mat-dialog-content>
    
     <mat-dialog-actions style="padding: 8px;">
             <button mat-raised-button (click)="addTask()" class="mr-2">Create New Task</button>
-            <button mat-raised-button (click)="Cancel()" color="accent">Cancel</button>
-            <button mat-raised-button color="primary">Create</button>
+            <button mat-raised-button (click)="cancel()" color="accent">Cancel</button>
+            <button mat-raised-button (click)="create()" color="primary">{{data.editMode ? "Update":"Create"}}</button>
     </mat-dialog-actions>
-   
-    
-    
 </div>
