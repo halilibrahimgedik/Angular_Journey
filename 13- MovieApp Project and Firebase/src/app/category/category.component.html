@@ -1,0 +1,22 @@
+<div class="list-group">
+
+    <a
+        routerLink="movies"
+        (click)="selectCategory()"
+        [class.active]="displayAllCategories" 
+        class="list-group-item list-group-item-action" 
+        >
+        Tüm Kategoriler
+    </a>
+
+
+    <a 
+        routerLink="movies/category/{{category.id}}"
+        class="list-group-item list-group-item-action"
+        *ngFor="let category of categories; let i = index"
+        (click)="selectCategory(category)"
+        >
+        {{category.name | titlecase}}
+    </a>
+
+</div>

@@ -1,0 +1,45 @@
+<h1>Create Movie</h1>
+
+<form [formGroup]="createMovieForm" (ngSubmit)="createMovie()">
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Başlık</label>
+        <input type="text" class="form-control" formControlName="title">
+
+        @if (title.invalid && title.touched) {
+            @if (title.hasError("required")) { <p class="errorMessage">Bu alan Zorunludur</p> }
+            @if (title.hasError("minlength")) { <p class="errorMessage">en az 5 karakter girebilirsiniz</p> }
+        }
+    </div>
+
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Açıklama</label>
+        <textarea type="text" class="form-control" formControlName="description" ></textarea>
+
+        @if (description.invalid && description.touched) {
+            @if (description.hasError("required")) { <p class="errorMessage">Bu alan Zorunludur</p> }
+            @if (description.hasError("minlength")) { <p class="errorMessage">en az 10 karakter girebilirsiniz</p> }
+            @if (description.hasError("maxlength")) { <p class="errorMessage">en fazla 450 karakter girebilirsiniz</p> }
+        }
+    </div>
+
+
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label">Resim yolu</label>
+        <input type="text" class="form-control" formControlName="imageUrl">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="categotyId" class="form-label">Kategori</label>
+        <select class="form-select" formControlName="categoryId">
+            <option value="-1" selected disabled>Bir Kategori Seçiniz</option>
+            @for (category of categories; track $index) {
+                <option value="{{category.id}}">{{category.name}}</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Kaydet </button>
+</form>

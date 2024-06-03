@@ -1,0 +1,97 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Apollo 11",
+      "categoryId": 3,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet.",
+      "imageUrl": "1.jpeg",
+      "isPopular": false
+    },
+    {
+      "id": 2,
+      "title": "Berserk",
+      "categoryId": 4,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet.",
+      "imageUrl": "3.jpeg",
+      "isPopular": true
+    },
+    {
+      "id": 3,
+      "title": "Godzilla",
+      "categoryId": 2,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet.",
+      "imageUrl": "4.jpeg",
+      "isPopular": false
+    },
+    {
+      "id": 4,
+      "title": "X-Men",
+      "categoryId": 1,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet.",
+      "imageUrl": "2.jpeg",
+      "isPopular": true
+    },
+    {
+      "id": 5,
+      "title": "Kill Bill",
+      "categoryId": 1,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet.",
+      "imageUrl": "5.jpeg",
+      "isPopular": true
+    },
+    {
+      "id": 6,
+      "title": "Kill Bill 2",
+      "categoryId": 1,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis possimus sint velit, odit itaque saepe suscipit animi quae porro, consectetur veniam fugit aut. Possimus nulla dolor dolore ex amet.",
+      "imageUrl": "5.jpeg",
+      "isPopular": true
+    },
+    {
+      "id": 7,
+      "title": "Jujutsu Kaisen Shibuya Arc",
+      "description": "",
+      "imageUrl": "/img/jjk.jpg",
+      "categoryId": "category.id",
+      "isPopular": false,
+      "publishedDate": 1717216502049
+    },
+    {
+      "id": 8,
+      "title": "Transformers 3 Ayın Karanlık Yüzü",
+      "description": "Transformers: Ay'ın Karanlık Yüzü, bilimkurgu ve serisinin üçüncü filmidir. Filmin yönetmenliğini Michael Bay, yapımcılığını ise Steven Spielberg üstlenmiştir. Filmin ana karakterleri Otobotlar ve Decepticonlar arasındaki savaş ilerlemiştir.",
+      "imageUrl": "/img/transformes3.jpeg",
+      "categoryId": "category.id",
+      "isPopular": false,
+      "publishedDate": 1717217459535
+    }
+
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Aksiyon"
+    },
+    {
+      "id": 2,
+      "name": "Bilim Kurgu"
+    },
+    {
+      "id": 3,
+      "name": "Macera"
+    },
+    {
+      "id": 4,
+      "name": "Dram"
+    },
+    {
+      "id": 5,
+      "name": "Korku"
+    },
+    {
+      "id": 6,
+      "name": "Gerilim"
+    }
+  ]
+}

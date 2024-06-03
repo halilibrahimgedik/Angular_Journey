@@ -1,0 +1,21 @@
+.form-control.ng-invalid.ng-touched{
+    border: 1px solid rgba(243, 8, 8, 0.5);
+    box-shadow: 0 0 10px rgba
+    (243, 8, 8, 0.5);
+}
+
+.form-select.ng-invalid.ng-touched{
+    border: 1px solid rgba(243, 8, 8, 0.5);
+    box-shadow: 0 0 10px rgba(243, 8, 8, 0.5);
+}
+
+.form-control.ng-dirty.ng-valid{
+    border-left: 5px solid rgb(25, 219, 25);
+    /* box-shadow: 0 0 10px rgba(25, 219, 25, 0.5); */
+}
+
+/* validationdan geçemeyen form elemanları için, <p>...</p> tagındaki hata mesajları */
+.errorMessage{
+    padding-top: 7px;
+    color: red;
+}

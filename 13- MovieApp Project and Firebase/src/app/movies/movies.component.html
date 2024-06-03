@@ -1,0 +1,145 @@
+@if (errorMessage) {
+    <div class="alert alert-danger">
+        {{errorMessage}}
+    </div>
+}
+
+
+@if(filteredMovies.length > 0)
+{
+    <div class="alert alert-success">
+        {{filteredMovies.length}} film bulundu
+    </div>
+}
+@else
+{
+    <div class="alert alert-warning">
+        Film Bulunamadı
+    </div>
+}
+
+
+    <!--! Pipe ile Filmleri arama filtreleme -->
+<!-- <div class="my-3 p-3 bg-primary rounded">
+    <input type="text" 
+        class="form-control" 
+        [(ngModel)]="stringForSearch" 
+        placeholder="Search a movie...">
+
+    <p class="mt-2 mb-0 text-white mx-2" 
+        *ngIf="stringForSearch">Searched Movie : {{stringForSearch}}
+    </p>
+</div> -->
+
+<!-- ! Event ile filmleri filtreleme -->
+<div class="my-3">
+    <input type="text" 
+        class="form-control" 
+        [(ngModel)]="stringForSearch"
+        (ngModelChange)="onInputChange()"
+        placeholder="Search a movie...">
+
+    <p class="mt-2 mb-0 text-white mx-2" 
+        *ngIf="stringForSearch">Searched Movie : {{stringForSearch}}
+    </p>
+</div>
+<!-- template2'i çağırdık -->
+@if (!stringForSearch && !isCategorySelected) {
+    <ng-template 
+        [ngTemplateOutlet]="template2" 
+        [ngTemplateOutletContext]="{populerMovies: getPopularMovies()}"
+        >
+    </ng-template>  
+}
+
+<h3 [ngClass]="{'my-4': true}">{{ title }}</h3>
+
+<!-- template1'i çağırdık -->
+<ng-template [ngTemplateOutlet]="template1">
+</ng-template>  
+
+<br>
+
+
+<!-- Template var ama çağırılmadı, yukarıda çağıralım-->
+<ng-template #template1>
+    <div *ngFor="let item of filteredMovies">
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h2 class="card-title">{{item.title}}</h2>
+                        <p class="card-text">{{item.description}}</p>
+                        <a routerLink="/movies/{{item.id}}" class="btn btn-sm btn-outline-primary">Details</a>
+                        <button type="button" (click)="addToList($event,item)" class="btn btn-sm btn-success text-white ms-1">Listeye Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #template2 let-movieList="populerMovies">
+    <h3 class="my-4">Populer Films</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+        <div class="col" *ngFor="let item of movieList">
+            @if (item.isPopular) 
+            {
+                <div class="card h-100">
+                    <img src="/assets/img/{{ item.imageUrl }}" class="card-img-top" style="height: 45vh;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ item.title | titlecase }}</h5>
+                      <p class="card-text">{{ item.description | summary }}</p>
+                    </div>
+                </div>
+            }
+          
+    
+        </div>
+      </div>
+</ng-template>
+
+<!-- 
+<div>
+    <h4>lower-upper-title pipe</h4>
+
+<p>{{"Samsung S20"}}</p>
+<p>{{"Samsung S20" | lowercase}}</p>
+<p>{{"Samsung S20" | uppercase}}</p>
+<p>{{"Samsung S20" | titlecase}}</p>
+
+<br><br>
+<h4>Date Pipe</h4>
+<p>{{today}}</p>
+<p>{{today | date}}</p>
+<p>{{today | date: "fullDate"}}</p>
+<p>{{today | date: "medium"}}</p>
+<p>{{today | date: "shortDate"}}</p>
+<p>{{today | date: "yyyy-MM-dd"}}</p>
+
+<br><br>
+<h4>Date Pipe</h4>
+<p>{{ 5.9087456 | number}}</p>
+<p>{{ 2.9987456 | number:'1.0-3'}}</p>
+<p>{{ 2.9187456 | number:'1.0-3'}}</p>
+<p>{{ 2.9987456 | number:'1.0-7'}}</p>
+
+<br><br>
+<h4>Currency Pipe</h4>
+<p> {{255}} </p>
+<p> {{255 | currency: 'EUR' }} </p>
+<p> {{255 | currency: 'USD' }} </p>
+<p> {{255 | currency: 'TRY' }} </p>
+
+<br><br>
+<h4>Pecent Pipe</h4>
+<p>{{0.259}}</p>
+<p>{{0.259 | percent }}</p>
+<p>{{0.0259 | percent }}</p>
+<p>{{ 3/4 | percent:"2.2-4" }}</p>
+<p>{{1.26 | percent:"2.2-4" }}</p>
+
+</div> -->

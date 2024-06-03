@@ -1,0 +1,22 @@
+.card {
+    margin-top: 20px;
+  }
+  
+  .img-container {
+    overflow: hidden;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .badge-success {
+    background-color: #28a745;
+  }
+  
+  .alert {
+    margin-top: 20px;
+  }
+  
