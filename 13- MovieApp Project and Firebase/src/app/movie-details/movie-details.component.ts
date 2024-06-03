@@ -11,6 +11,7 @@ import { Movie } from '../Models/movie';
 })
 export class MovieDetailsComponent implements OnInit{
 
+  loadingIcon:boolean = false;
   movie:Movie;
   errorMessage:string;
   id:number;
@@ -21,14 +22,17 @@ export class MovieDetailsComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
     this.activatedRoute.params.subscribe(params =>{
-      console.log(params["movieId"])
+      this.loadingIcon = true
       this.movieService.getMovieById(params["movieId"]).subscribe({
         next: (data)=>{
           this.movie = data;
+          this.loadingIcon = false;
         },
         error: (error) => {
           this.errorMessage = error;
+          this.loadingIcon = false;
         }
       });
     });

@@ -1,10 +1,10 @@
 
 export interface Movie{
-    id: number;
-    title:string;
-    description:string;
-    imageUrl:string;
-    isPopular:boolean;
-    publishedDate:number;
-    categoryId:number;
+    id: any;
+    title: string;
+    description: string;
+    imageUrl: string;
+    isPopular: boolean;
+    publishedDate: number;
+    categoryId: string;
 }

@@ -80,7 +80,7 @@ export class MovieCreateComponent implements OnInit
       title: this.createMovieForm.value.title, 
       description: this.createMovieForm.value.description,
       imageUrl: this.createMovieForm.value.imageUrl,
-      categoryId: parseInt(this.createMovieForm.value.categoryId),
+      categoryId: this.createMovieForm.value.categoryId,
       isPopular: false,
       publishedDate: new Date().getTime(),
     };

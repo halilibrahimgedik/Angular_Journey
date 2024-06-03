@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Movie } from '../Models/movie';
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, catchError, delay, map, tap, throwError } from 'rxjs';
 
 
 // yerel servis olarak ekleyelim.Yani hangi component bunu kullanıyorsa,
@@ -11,25 +11,37 @@ import { Observable, catchError, tap, throwError } from 'rxjs';
 export class MovieService {
 
   url:string = "http://localhost:3000/movies";
-  firebaseUrl = "https://angular-movie-app-886d0-default-rtdb.europe-west1.firebasedatabase.app"
+  firebaseUrl = "https://angular-movie-app-886d0-default-rtdb.europe-west1.firebasedatabase.app/"
   errorMessage:string;
   constructor(private httpClient: HttpClient){ }
 
   //todo bu metod çağırıldığında geriye observable nesne döndürüceğiz
-  getMovies(categoryId: number): Observable<Movie[]>
+  getMovies(categoryId: string): Observable<Movie[]>
   {
-    let newUrl = this.url;
-
-    if(categoryId){
-      newUrl += `?categoryId=${categoryId}`;
-    }
 
     //! geriye dönen Observable nesnesine servisin çağırıldığı yerde subscribe olunmadan
     //! önce araya bazı yazılımlar sokalım 'pipe' metodu sayesinde .Loglama, Hata Yönetimi gibi...
-    return this.httpClient.get<Movie[]>(this.firebaseUrl)
-    .pipe(
+    return this.httpClient.get<Movie[]>(this.firebaseUrl + "movies.json")
+    .pipe( 
+      map(response => {
+        const movies:Movie[] = [];
+
+        for(const key in response){    
+          
+          if(categoryId){
+            if(categoryId === response[key].categoryId){
+              movies.push( {...response[key], id: key} )
+            }
+          }else{
+            movies.push( {...response[key], id: key} )
+          }
+        }
+
+        return movies;
+      }),
       tap(data => console.log(data)),
-      catchError(this.handleError)
+      catchError(this.handleError),
+      delay(500)
     );
   }
   
@@ -63,9 +75,10 @@ export class MovieService {
     }
   }
 
-  getMovieById(movieId: number): Observable<Movie>{
-    return this.httpClient.get<Movie>(this.url + `/${movieId}`).pipe(
-      catchError(this.handleError)
+  getMovieById(movieId: any): Observable<Movie>{
+    return this.httpClient.get<Movie>(this.firebaseUrl + `movies/${movieId}.json`).pipe(
+      catchError(this.handleError),
+      delay(500)
     );
   }
   

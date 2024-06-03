@@ -14,7 +14,8 @@ import { ToastrService } from 'ngx-toastr';
   providers: [MovieService]
 })
 export class MoviesComponent implements OnInit {
-    
+  
+  loadingIcon: boolean = false;
   errorMessage:any;
   title:string=" Vizyondaki Filmler"
   movies: Movie[] = [];
@@ -33,6 +34,10 @@ ngOnInit(): void
 {
   this.activatedRoute.params.subscribe( params => 
   {this.isCategorySelected = params["categoryId"]})
+  
+  //todo Loading iconu veri gelmeden önce aktif edelim
+  this.loadingIcon = true;
+
   //! params üzerinden erişim
   this.activatedRoute.params.subscribe( params => 
     {
@@ -40,9 +45,15 @@ ngOnInit(): void
         next: (data) =>{ 
           this.movies = data;
           this.filteredMovies = this.movies;
+
+          //todo loading iconu kapatalım
+          this.loadingIcon = false; 
         },
         error: (error) =>{
           this.errorMessage = error;
+
+          //todo hata varsa da loading iconu kapatalım.
+          this.loadingIcon = false; 
         }
       });
     });

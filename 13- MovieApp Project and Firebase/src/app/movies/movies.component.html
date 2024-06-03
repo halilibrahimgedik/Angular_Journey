@@ -43,23 +43,29 @@
         *ngIf="stringForSearch">Searched Movie : {{stringForSearch}}
     </p>
 </div>
-<!-- template2'i çağırdık -->
-@if (!stringForSearch && !isCategorySelected) {
-    <ng-template 
-        [ngTemplateOutlet]="template2" 
-        [ngTemplateOutletContext]="{populerMovies: getPopularMovies()}"
-        >
-    </ng-template>  
+
+@if (!loadingIcon) 
+{
+    <div>
+        <!-- template2'i çağırdık -->
+        @if (!stringForSearch && !isCategorySelected &&  getPopularMovies().length>0) {
+            <ng-template 
+                [ngTemplateOutlet]="template2" 
+                [ngTemplateOutletContext]="{populerMovies: getPopularMovies()}"
+                >
+            </ng-template>  
+        }
+    
+        <h3 [ngClass]="{'my-4': true}">{{ title }}</h3>
+    
+        <!-- template1'i çağırdık -->
+        <ng-template [ngTemplateOutlet]="template1">
+        </ng-template>  
+    
+    </div>
 }
-
-<h3 [ngClass]="{'my-4': true}">{{ title }}</h3>
-
-<!-- template1'i çağırdık -->
-<ng-template [ngTemplateOutlet]="template1">
-</ng-template>  
-
+    
 <br>
-
 
 <!-- Template var ama çağırılmadı, yukarıda çağıralım-->
 <ng-template #template1>
@@ -67,7 +73,7 @@
         <div class="card mb-3">
             <div class="row">
                 <div class="col-md-3">
-                    <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start">
+                    <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start imgSettings">
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
@@ -102,44 +108,7 @@
       </div>
 </ng-template>
 
-<!-- 
-<div>
-    <h4>lower-upper-title pipe</h4>
 
-<p>{{"Samsung S20"}}</p>
-<p>{{"Samsung S20" | lowercase}}</p>
-<p>{{"Samsung S20" | uppercase}}</p>
-<p>{{"Samsung S20" | titlecase}}</p>
-
-<br><br>
-<h4>Date Pipe</h4>
-<p>{{today}}</p>
-<p>{{today | date}}</p>
-<p>{{today | date: "fullDate"}}</p>
-<p>{{today | date: "medium"}}</p>
-<p>{{today | date: "shortDate"}}</p>
-<p>{{today | date: "yyyy-MM-dd"}}</p>
-
-<br><br>
-<h4>Date Pipe</h4>
-<p>{{ 5.9087456 | number}}</p>
-<p>{{ 2.9987456 | number:'1.0-3'}}</p>
-<p>{{ 2.9187456 | number:'1.0-3'}}</p>
-<p>{{ 2.9987456 | number:'1.0-7'}}</p>
-
-<br><br>
-<h4>Currency Pipe</h4>
-<p> {{255}} </p>
-<p> {{255 | currency: 'EUR' }} </p>
-<p> {{255 | currency: 'USD' }} </p>
-<p> {{255 | currency: 'TRY' }} </p>
-
-<br><br>
-<h4>Pecent Pipe</h4>
-<p>{{0.259}}</p>
-<p>{{0.259 | percent }}</p>
-<p>{{0.0259 | percent }}</p>
-<p>{{ 3/4 | percent:"2.2-4" }}</p>
-<p>{{1.26 | percent:"2.2-4" }}</p>
-
-</div> -->
+@if(loadingIcon){
+    <app-loading></app-loading>
+}

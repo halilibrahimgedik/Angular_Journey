@@ -1,4 +1,5 @@
-<div *ngIf="movie; else noMovie">
+@if (!loadingIcon) {
+  <div *ngIf="movie; else noMovie">
     <div class="card mb-3">
       <div class="row no-gutters">
         <div class="col-md-4 img-container">
@@ -17,9 +18,14 @@
       </div>
     </div>
 </div>
+}
 
 <ng-template #noMovie>
     <div class="alert alert-warning">
         Film Bulunamadı
     </div>
 </ng-template>
+
+@if (loadingIcon) {
+  <app-loading></app-loading>
+}

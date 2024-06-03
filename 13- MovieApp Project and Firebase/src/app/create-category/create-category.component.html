@@ -1,0 +1,17 @@
+<h1>Create Movie</h1>
+
+<form [formGroup]="createCategoryForm" (ngSubmit)="createCategory()">
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Kategori Adı</label>
+        <input type="text" class="form-control" formControlName="name">
+
+        @if (name.invalid && name.touched) {
+            @if (name.hasError("required")) { <p class="errorMessage">Bu alan Zorunludur</p> }
+            @if (name.hasError("minlength")) { <p class="errorMessage">en az 5 karakter girebilirsiniz</p> }
+            @if (name.hasError("maxlength")) { <p class="errorMessage">en az 5 karakter girebilirsiniz</p> }
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Kaydet </button>
+</form>

@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieCreateComponent } from './movie-create/movie-create.component';
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { MovieCreateComponent } from './movie-create/movie-create.component';
     CustomSummaryPipe,
     CustomMovieFilterPipe,
     MovieCreateComponent,
+    CreateCategoryComponent,
+    LoadingComponent,
   ],
   imports: [            // ! module tanımlamaları
     BrowserModule,
