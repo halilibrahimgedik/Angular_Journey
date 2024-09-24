@@ -1,0 +1,18 @@
+<p>
+  <select (change)="onSortOrderChange($event)">
+    <option value="asc" [selected]="order() === 'asc'">ascending</option>
+    <option value="desc" [selected]="order() === 'desc'">descending</option>
+  </select>
+</p>
+
+
+
+<ul>
+  @for (task of userTasks(); track task.id) {
+    <li>
+      <app-task [task]="task"/>
+    </li>
+  } @empty {
+    <p>There are no tasks yet. Start adding some!</p>
+  }
+</ul>
