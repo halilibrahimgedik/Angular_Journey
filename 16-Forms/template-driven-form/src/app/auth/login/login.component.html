@@ -1,0 +1,21 @@
+<form #formData="ngForm" (ngSubmit)="onSubmit(formData)">
+  <h2>Login</h2>
+
+  <div class="control-row">
+    <div class="control no-margin">
+      <label for="email">Email</label>
+      <input id="email" type="email" ngModel name="email" required email #emailControl="ngModel"/>
+      <!-- touched, drity gibi alanlara erişmek için #emailControl= "ngModel" alanalrını ekeldik-->
+      @if((emailControl.touched || emailControl.dirty) && emailControl.invalid){
+        <i style="border-color: red;"> email is  invalid </i>
+      }
+    </div>
+
+    <div class="control no-margin">
+      <label for="password">Password</label>
+      <input id="password" type="password" ngModel name="passsword" required minlength="6" #passwordControl="ngModel"/>
+    </div>
+
+    <button class="button">Login</button>
+  </div>
+</form>

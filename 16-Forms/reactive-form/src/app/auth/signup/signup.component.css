@@ -1,0 +1,10 @@
+.control-row.ng-invalid.ng-dirty.ng-touched input {
+  background-color: #ed6d6d;
+  color: white;
+}
+
+/* Eğer input alanı valid ise */
+input.ng-valid {
+  background-color: #e0ffe0; /* yeşil arka plan */
+  color: black;
+}
